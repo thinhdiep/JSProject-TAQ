@@ -1,0 +1,96 @@
+JavaScript Files:
+JavaScript programs should be stored in and delivered as .js files.
+JavaScript code should not be embedded in HTML files unless the code is specific to a single session. <script src=filename.js> tags should be placed as late in the body as possible. There is no need to use the language or type attributes. It is the server, not the script tag, that determines the MIME type.
+
+Indentation:
+The unit of indentation is four spaces. Use of tabs should be avoided
+
+Line Length: 
+Avoid lines longer than 80 characters. When a statement will not fit on a single line, it may be necessary to break it. Place the break after an operator, ideally after a comma. The next line should be indented 8 spaces.
+
+Multiline string literals:
+Do not do this:
+var myString = 'A rather long string of English text, an error message \
+                actually that just keeps going and going -- an error \
+                message to make the Energizer bunny blush (right through \
+                those Schwarzenegger shades)! Where was I? Oh yes, \
+                you\'ve got an error and all the extraneous whitespace is \
+                just gravy.  Have a nice day.';
+The whitespace at the beginning of each line can't be safely stripped at compile time; whitespace after the slash will result in tricky errors; and while most script engines support this, it is not part of ECMAScript.
+Use string concatenation instead:
+var myString = 'A rather long string of English text, an error message ' +
+        'actually that just keeps going and going -- an error ' +
+        'message to make the Energizer bunny blush (right through ' +
+        'those Schwarzenegger shades)! Where was I? Oh yes, ' +
+        'you\'ve got an error and all the extraneous whitespace is ' +
+        'just gravy.  Have a nice day.';
+
+Comments:
+The comments should be well-written and clear, just like the code they are annotating.It is important that comments be kept up-to-date.
+Generally use line comments. Save block comments for formal documentation and for commenting out.
+If you have to line break a block tag, you should treat this as breaking a code statement and indent it four spaces.
+Like JavaDoc, JSDoc supports many HTML tags, like <code>, <pre>, <tt>, <strong>, <ul>, <ol>, <li>, <a>, and others
+
+example: 
+   	
+
+/**
+ * Computes weight based on three factors:
+ * <ul>
+ * <li>items sent
+ * <li>items received
+ * <li>last timestamp
+ * </ul>
+ */
+
+Classes must be documented with a description and a type tag that identifies the constructor.
+
+EX: 
+/**
+ * Class making something fun and easy.
+ * @param {string} arg1 An argument that makes this more interesting.
+ * @param {Array.<number>} arg2 List of numbers to be processed.
+ * @constructor
+ * @extends {goog.Disposable}
+ */
+project.MyClass = function(arg1, arg2) {
+  // ...
+};
+goog.inherits(project.MyClass, goog.Disposable);
+
+Statements:
+Put a ; (semicolon) at the end of every simple statement.
+
+The with statement should not be used.
+
+Condition statements should use this format : 
+
+   keyword (condition) {
+        statements
+    }
+
+Variable Declarations
+.Declarations with var: Always
+.All variables should be declared before used
+.Use NAMES_LIKE_THIS for constant values.
+
+Function Declarations
+.All functions should be declared before they are used. Inner functions should follow the var statement
+
+.There should be no space between the name of a function and the ( (left parenthesis) of its parameter list. There should be one space between the ) (right parenthesis) and the {(left curly brace) that begins the statement body. The body itself is indented four spaces. The } (right curly brace) is aligned with the line containing the beginning of the declaration of the function.
+
+Say NO with:
+eval () 
+delete : In modern JavaScript engines, changing the number of properties on an object is much slower than reassigning the values. The delete keyword should be avoided except when it is necessary to remove a property from an object's iterated list of keys, or to change the result of if (key in obj).
+
+with ().
+
+
+Tips & suggestion:
+
+.Use {} instead of new Object(). Use [] instead of new Array().
+
+.null, undefind, empty string (‘’), 0 will return false in boolean so instead of 
+	if(x != null && x !=’’)  use  if(x)
+
+
